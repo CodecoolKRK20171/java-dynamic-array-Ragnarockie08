@@ -1,4 +1,4 @@
-package com.codecool.dynamicArrayDojo.linked_list;
+package com.codecool.dynamicArrayDojo.linked_list.singleList;
 
 public class SingleLinkedList<E> {
 

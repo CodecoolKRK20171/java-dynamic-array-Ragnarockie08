@@ -1,8 +1,7 @@
 package com.codecool.dynamicArrayDojo;
 
 
-import com.codecool.dynamicArrayDojo.dynamic_array.DynamicIntArray;
-import com.codecool.dynamicArrayDojo.linked_list.SingleLinkedList;
+import com.codecool.dynamicArrayDojo.linked_list.singleList.SingleLinkedList;
 
 import java.util.LinkedList;
 

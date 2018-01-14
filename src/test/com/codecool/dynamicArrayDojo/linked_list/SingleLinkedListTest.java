@@ -1,7 +1,7 @@
 package com.codecool.dynamicArrayDojo.linked_list;
 
+import com.codecool.dynamicArrayDojo.linked_list.singleList.SingleLinkedList;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.Assert.*;
 
