@@ -29,17 +29,29 @@ public class SingleLinkedList<E> {
         size++;
     }
 
+    public void addAtBeggining(E value){
+        Node<E> node = new Node(value);
+
+
+        if (head == null){
+            head = node;
+            end = node;
+        } else{
+            node.setLink(head);
+            head = node;
+        }
+        size++;
+    }
+
     public void add(int index, E value){
 
         Node<E> node = new Node<>(value);
         Node elem = head;
 
         if (index == 0) {
-            node.setLink(head);
-            head = node;
+            addAtBeggining(value);
         } else if(index == size){
-            end.setLink(node);
-            end = node;
+            add(value);
         } else if (index > 0 && index < size){
 
             for (int i = 1; i < size; i++){
@@ -47,7 +59,6 @@ public class SingleLinkedList<E> {
                     Node temp = elem.getLink();
                     elem.setLink(node);
                     node.setLink(temp);
-                    break;
                 }
                 elem = elem.getLink();
             }
