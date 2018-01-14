@@ -1,5 +1,6 @@
 package com.codecool.dynamicArrayDojo;
 
+import com.codecool.dynamicArrayDojo.dynamic_array.DynamicIntArray;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

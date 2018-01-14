@@ -1,4 +1,4 @@
-package com.codecool.dynamicArrayDojo;
+package com.codecool.dynamicArrayDojo.dynamic_array;
 
 import java.util.Arrays;
 

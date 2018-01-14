@@ -1,20 +1,34 @@
 package com.codecool.dynamicArrayDojo;
 
 
+import com.codecool.dynamicArrayDojo.dynamic_array.DynamicIntArray;
+import com.codecool.dynamicArrayDojo.linked_list.SingleLinkedList;
+
+import java.util.LinkedList;
+
 public class Program {
 
     public static void main(String[] args) {
-        System.out.println("Do not run me, run the TESTS!");
 
-        DynamicIntArray<Integer> array = new DynamicIntArray<>();
+        SingleLinkedList linkedList = new SingleLinkedList();
 
-        array.add(5);
-        array.add(6);
-        array.add(7);
-        System.out.println(array.toString());
-        array.remove(1);
-        System.out.println(array.toString());
-        System.out.println(array.size());
+        linkedList.add("Janusz");
+        linkedList.add("Karol");
+        linkedList.add("Wojtek");
+        linkedList.add("Oliwia");
+        linkedList.add(3, "Igor");
+        System.out.println(linkedList);
+        linkedList.remove(0);
+        System.out.println(linkedList);
+
+        LinkedList<Integer> list = new LinkedList<>();
+
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.remove(3);
+        System.out.println(list);
 
     }
 }
