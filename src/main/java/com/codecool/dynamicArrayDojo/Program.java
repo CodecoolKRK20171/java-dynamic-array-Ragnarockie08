@@ -1,27 +1,29 @@
 package com.codecool.dynamicArrayDojo;
 
 
+import com.codecool.dynamicArrayDojo.dynamic_array.DynamicIntArray;
 import com.codecool.dynamicArrayDojo.linked_list.doubleList.DoubleLinkedList;
 import com.codecool.dynamicArrayDojo.linked_list.singleList.SingleLinkedList;
+import com.codecool.dynamicArrayDojo.queue.CustomQueue;
 import com.codecool.dynamicArrayDojo.stack.Stack;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Program {
 
     public static void main(String[] args) {
 
-        DoubleLinkedList<Integer> linkedList = new DoubleLinkedList<>();
 
-        Stack<Integer> stack = new Stack<>(10);
+        DynamicIntArray<Integer> list = new DynamicIntArray<>();
 
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        System.out.println(stack);
-        System.out.println(stack.peek());
-        stack.pop();
-        System.out.println(stack);
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.insert(1,1);
+        System.out.println(list);
+
+
 
 
 

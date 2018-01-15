@@ -3,6 +3,7 @@ package com.codecool.dynamicArrayDojo.queue;
 public class Node<T> {
     private T value;
     private Node nextNode;
+    private int priority;
 
     public Node(T value){
         this.value = value;
@@ -10,6 +11,14 @@ public class Node<T> {
 
     public T getValue(){
         return this.value;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 
     public Node getNextNode(){
