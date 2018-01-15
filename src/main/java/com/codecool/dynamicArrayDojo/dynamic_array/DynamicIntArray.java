@@ -53,6 +53,10 @@ public class DynamicIntArray<E> {
 
     public boolean insert(int index, E element){
         checkIndex(index);
+        data = Arrays.copyOf(data, ++size);
+        for (int i = size()-2; i >= index; i--) {
+            data[i+1] = data[i];
+        }
         data[index] = element;
         return true;
     }

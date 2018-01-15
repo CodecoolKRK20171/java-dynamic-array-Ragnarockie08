@@ -56,7 +56,7 @@ class DynamicIntArrayTest {
         array.insert(8, 223);
         array.insert(10, 654);
 
-        String result = " 0 1 2 3 4 5 6 7 223 9 654";
+        String result = " 0 1 2 3 4 5 6 7 223 8 654 9 10";
         assertEquals(result, array.toString());
     }
 
