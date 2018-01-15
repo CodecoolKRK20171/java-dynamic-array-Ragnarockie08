@@ -3,6 +3,7 @@ package com.codecool.dynamicArrayDojo;
 
 import com.codecool.dynamicArrayDojo.linked_list.doubleList.DoubleLinkedList;
 import com.codecool.dynamicArrayDojo.linked_list.singleList.SingleLinkedList;
+import com.codecool.dynamicArrayDojo.stack.Stack;
 
 import java.util.LinkedList;
 
@@ -12,12 +13,17 @@ public class Program {
 
         DoubleLinkedList<Integer> linkedList = new DoubleLinkedList<>();
 
-        linkedList.add(1);
-        linkedList.add(2);
-        linkedList.add(1, 0);
-        System.out.println(linkedList);
-//        linkedList.remove(0);
-//        System.out.println(linkedList);
+        Stack<Integer> stack = new Stack<>(10);
+
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        System.out.println(stack);
+        System.out.println(stack.peek());
+        stack.pop();
+        System.out.println(stack);
+
+
 
     }
 }

@@ -28,6 +28,21 @@ public class DoubleLinkedList<E> {
         size++;
     }
 
+    private void addAtBeggining(E value){
+
+        Node newNode = new Node(value);
+
+        if(head==null){
+            head=newNode;
+            tail=newNode;
+        }else {
+            head.setPrevLink(newNode);
+            newNode.setNextLink(head);
+            head = newNode;
+        }
+        size++;
+    }
+
     public void add(int index, E value){
 
         Node node = new Node(value);
@@ -75,21 +90,6 @@ public class DoubleLinkedList<E> {
             throw new ArrayIndexOutOfBoundsException();
         }
         size--;
-    }
-
-    private void addAtBeggining(E value){
-
-        Node newNode = new Node(value);
-
-        if(head==null){
-            head=newNode;
-            tail=newNode;
-        }else {
-            head.setPrevLink(newNode);
-            newNode.setNextLink(head);
-            head = newNode;
-        }
-        size++;
     }
 
     public int size(){
