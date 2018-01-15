@@ -8,6 +8,7 @@ public class DynamicIntArray<E> {
     private int size;
 
     public DynamicIntArray(){
+
         data = new Object [0];
         size = 0;
     }
@@ -44,7 +45,6 @@ public class DynamicIntArray<E> {
         for (int i = index; i < size() - 1; i++) {
             data[i] = data[i + 1];
         }
-
         data = Arrays.copyOf(data, --size);
 
         return true;
@@ -52,6 +52,7 @@ public class DynamicIntArray<E> {
     }
 
     public boolean insert(int index, E element){
+
         checkIndex(index);
         data = Arrays.copyOf(data, ++size);
         for (int i = size()-2; i >= index; i--) {

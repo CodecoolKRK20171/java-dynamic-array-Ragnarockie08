@@ -53,7 +53,6 @@ public class SingleLinkedList<E> {
         } else if(index == size){
             add(value);
         } else if (index > 0 && index < size){
-
             for (int i = 1; i < size; i++){
                 if (i == index){
                     Node temp = elem.getLink();
@@ -73,25 +72,9 @@ public class SingleLinkedList<E> {
         if (index == 0){
             head = head.getLink();
         } else if (index == size-1){
-            Node start = head;
-            Node temp = head;
-            while(start != end){
-                temp = start;
-                start = start.getLink();
-            }
-            end = temp;
-            end.setLink(null);
+            removeEnd();
         } else if (index > 0 && index < size-1){
-            Node elem = head;
-            for (int i = 1; i < size()-1; i++){
-                if (i == index){
-                    Node temp = elem.getLink();
-                    temp = temp.getLink();
-                    elem.setLink(temp);
-                    break;
-                }
-                elem = elem.getLink();
-            }
+            removeMiddle(index);
         }
         size--;
     }
@@ -103,13 +86,13 @@ public class SingleLinkedList<E> {
     public String toString(){
 
         String output = "";
+        Node element;
 
         if (size == 0){
             output = "[]";
         } else if (head.getLink() == null){
             output = String.valueOf(head.getValue());
         } else {
-            Node element = head;
             output += head.getValue();
             element = head.getLink();
 
@@ -120,5 +103,29 @@ public class SingleLinkedList<E> {
             output += "," + element.getValue();
         }
         return output;
+    }
+
+    private void removeEnd(){
+        Node start = head;
+        Node temp = head;
+        while(start != end){
+            temp = start;
+            start = start.getLink();
+        }
+        end = temp;
+        end.setLink(null);
+    }
+
+    private void removeMiddle(int index){
+        Node elem = head;
+        for (int i = 1; i < size()-1; i++){
+            if (i == index){
+                Node temp = elem.getLink();
+                temp = temp.getLink();
+                elem.setLink(temp);
+                break;
+            }
+            elem = elem.getLink();
+        }
     }
 }

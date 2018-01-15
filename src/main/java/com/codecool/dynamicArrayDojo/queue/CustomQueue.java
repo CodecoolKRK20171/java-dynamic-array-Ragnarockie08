@@ -13,47 +13,45 @@ public class CustomQueue<T> {
         this.size = 0;
     }
 
+    public void enqueue(T value){
+
+        Node node = new Node(value);
+
+        if (peekItem == null){
+            peekItem = node;
+            last = node;
+        }else {
+            last.setNextNode(node);
+            last = node;
+        }
+        size++;
+    }
+
     public void enqueue(T value, int priority){
 
         Node node = new Node(value);
         node.setPriority(priority);
 
         if (peekItem == null){
-            peekItem = node;
-            last = node;
+            enqueue(value);
         } else if (priority == 0) {
-            last.setNextNode(node);
-            last = node;
-            last.setNextNode(null);
+            enqueue(value);
         }else {
-            Node temp = peekItem;
-            for (int i = 0; i < size - 1; i++) {
-                if (node.getPriority() > temp.getPriority()) {
-                    temp.getNextNode().setNextNode(node);
-                    node.setNextNode(temp);
-                    if (i == 0){
-                        peekItem = node;
-                    }
-                }
-                temp = temp.getNextNode();
-            }
+            handlePriorityQueue(node);
         }
-        size++;
     }
 
     public void dequeue(){
 
         handleEmptyQueue();
 
-        if (peekItem != null){
-            if (peekItem.getNextNode() == null){
-                peekItem = null;
-                last = null;
-            } else {
-                peekItem = peekItem.getNextNode();
-            }
-            size--;
+        if (peekItem.getNextNode() == null){
+            peekItem = null;
+            last = null;
+        } else {
+            peekItem = peekItem.getNextNode();
         }
+        size--;
     }
 
     public Node<T> peek(){
@@ -65,7 +63,6 @@ public class CustomQueue<T> {
         } else {
             throw new NoSuchElementException();
         }
-
     }
 
     public int queueSize(){
@@ -80,6 +77,48 @@ public class CustomQueue<T> {
         if (isEmpty()){
             throw new NoSuchElementException("Queue is empty");
         }
+    }
+
+    private void handlePriorityQueue(Node node){
+
+        Node temp = peekItem;
+        Node elem = temp;
+        for (int i = 0; i < size; i++) {
+            if (node.getPriority() > temp.getPriority()) {
+                if(node.getPriority() > peekItem.getPriority()) {
+                    node.setNextNode(peekItem);
+                    peekItem = node;
+                } else {
+                    node.setNextNode(temp);
+                    elem.setNextNode(node);
+                }
+                break;
+            }
+            elem = temp;
+            temp = temp.getNextNode();
+        }
+        size++;
+    }
+
+    public String toString(){
+
+        String output = "";
+        Node element;
+
+        if (size == 0){
+            output = "[]";
+        } else if (peekItem.getNextNode() == null){
+            output = String.valueOf(peekItem.getValue());
+        } else {
+            element = peekItem;
+
+            while(element.getNextNode() != null){
+                output += " " + element.getValue();
+                element = element.getNextNode();
+            }
+            output += " " + element.getValue();
+        }
+        return output;
     }
 
 }
