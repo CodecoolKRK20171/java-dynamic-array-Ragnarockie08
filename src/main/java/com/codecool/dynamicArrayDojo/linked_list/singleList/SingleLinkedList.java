@@ -108,6 +108,7 @@ public class SingleLinkedList<E> {
     }
 
     private void removeMiddle(int index){
+
         Node elem = head;
         for (int i = 1; i < size()-1; i++){
             if (i == index){
