@@ -12,23 +12,13 @@ public class Program {
 
     public static void main(String[] args) {
 
-        DoubleLinkedList<Integer> linkedList = new DoubleLinkedList<>();
+      SingleLinkedList<Integer> list = new SingleLinkedList();
 
-        CustomQueue<Integer> q = new CustomQueue<>();
-
-        q.enqueue(1, 0);
-        q.enqueue(2, 1);
-        q.enqueue(3,0);
-        q.enqueue(4, 4);
-        System.out.println(q.peek().getValue());
-
-
-
-        System.out.println(q.toString());
-
-
-
-
+      list.add(1);
+      list.add(2);
+      list.add(3);
+      list.add(4);
+      System.out.println(list);
 
     }
 }

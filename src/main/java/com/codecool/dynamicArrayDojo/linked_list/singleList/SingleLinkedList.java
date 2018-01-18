@@ -86,22 +86,13 @@ public class SingleLinkedList<E> {
     public String toString(){
 
         String output = "";
-        Node element;
 
-        if (size == 0){
-            output = "[]";
-        } else if (head.getLink() == null){
-            output = String.valueOf(head.getValue());
-        } else {
-            output += head.getValue();
-            element = head.getLink();
-
-            while(element.getLink() != null){
-                output += "," + element.getValue();
-                element = element.getLink();
-            }
-            output += "," + element.getValue();
+        Node temp = head;
+        while(temp != null){
+            output += " " + temp.getValue() ;
+            temp = temp.getLink();
         }
+
         return output;
     }
 
