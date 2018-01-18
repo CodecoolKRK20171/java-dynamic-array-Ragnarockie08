@@ -10,27 +10,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class CustomQueueTest {
 
     @Test
-    public void enqueueWithSingleParemeter() {
-
-        CustomQueue<Integer> queue = new CustomQueue<>();
-
-        queue.enqueue(1);
-        queue.enqueue(2);
-        queue.enqueue(3);
-
-        String expected = " 1 2 3";
-
-        assertEquals(expected, queue.toString());
-    }
-
-    @Test
     public void enqueueWithTwoParameters() {
 
         CustomQueue<Integer> queue = new CustomQueue<>();
 
+        queue.enqueue(3, 1);
         queue.enqueue(1, 0);
         queue.enqueue(2, 2);
-        queue.enqueue(3, 1);
+
 
         String expected = " 2 3 1";
 

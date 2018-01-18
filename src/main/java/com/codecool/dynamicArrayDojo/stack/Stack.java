@@ -15,13 +15,9 @@ public class Stack<T> {
 
     public void push(T value){
 
-        try{
-            checkSpace();
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-        peekItem++;
-        data[peekItem] = value;
+        checkSpace();
+
+        data[++peekItem] = value;
         space--;
     }
 
@@ -30,25 +26,24 @@ public class Stack<T> {
     }
 
     public void pop(){
-        data[peekItem] = null;
-        peekItem--;
+        data[peekItem--] = null;
     }
 
     public T peek(){
         return (T) data[peekItem];
     }
 
-    public void checkSpace() throws IOException{
+    public void checkSpace(){
         if (space < 1) {
-            throw new IOException("No space left");
+            throw new IllegalArgumentException("No space left");
         }
     }
 
     public String toString(){
         String output = "";
-        for (Object element: data){
-            if (element != null){
-                output += " " + element;
+        for (int i = size()-1; i >=0; i--){
+            if (data[i] != null){
+                output += " " + data[i];
             }
         }
         return output;

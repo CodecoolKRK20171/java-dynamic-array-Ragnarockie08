@@ -1,8 +1,6 @@
 package com.codecool.dynamicArrayDojo;
 
 
-import com.codecool.dynamicArrayDojo.linked_list.doubleList.DoubleLinkedList;
-import com.codecool.dynamicArrayDojo.linked_list.singleList.SingleLinkedList;
 import com.codecool.dynamicArrayDojo.queue.CustomQueue;
 import com.codecool.dynamicArrayDojo.stack.Stack;
 
@@ -12,13 +10,14 @@ public class Program {
 
     public static void main(String[] args) {
 
-      SingleLinkedList<Integer> list = new SingleLinkedList();
+        CustomQueue<Integer> q = new CustomQueue<>();
 
-      list.add(1);
-      list.add(2);
-      list.add(3);
-      list.add(4);
-      System.out.println(list);
+        q.enqueue(1, 21);
+        q.enqueue(2, 2);
+        q.enqueue(3, 22);
 
+        System.out.println(q);
+
+        System.out.println(q.peek().getValue());
     }
 }

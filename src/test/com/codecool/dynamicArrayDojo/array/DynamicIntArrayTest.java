@@ -1,4 +1,4 @@
-package com.codecool.dynamicArrayDojo;
+package com.codecool.dynamicArrayDojo.array;
 
 import com.codecool.dynamicArrayDojo.dynamic_array.DynamicIntArray;
 import org.junit.jupiter.api.Test;

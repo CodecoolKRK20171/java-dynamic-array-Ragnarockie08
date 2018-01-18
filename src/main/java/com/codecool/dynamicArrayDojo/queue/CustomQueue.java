@@ -13,9 +13,7 @@ public class CustomQueue<T> {
         this.size = 0;
     }
 
-    public void enqueue(T value){
-
-        Node node = new Node(value);
+    public void enqueue(Node node){
 
         if (peekItem == null){
             peekItem = node;
@@ -32,10 +30,8 @@ public class CustomQueue<T> {
         Node node = new Node(value);
         node.setPriority(priority);
 
-        if (peekItem == null){
-            enqueue(value);
-        } else if (priority == 0) {
-            enqueue(value);
+        if (peekItem == null || priority == 0){
+            enqueue(node);
         }else {
             handlePriorityQueue(node);
         }
@@ -83,19 +79,26 @@ public class CustomQueue<T> {
 
         Node temp = peekItem;
         Node elem = temp;
-        for (int i = 0; i < size; i++) {
-            if (node.getPriority() > temp.getPriority()) {
-                if(node.getPriority() > peekItem.getPriority()) {
-                    node.setNextNode(peekItem);
-                    peekItem = node;
-                } else {
-                    node.setNextNode(temp);
-                    elem.setNextNode(node);
-                }
-                break;
+
+        if (peekItem.getNextNode() == null) {
+            if (peekItem.getPriority() >= node.getPriority()){
+                peekItem.setNextNode(node);
+            } else {
+                node.setNextNode(peekItem);
+                peekItem = node;
             }
-            elem = temp;
-            temp = temp.getNextNode();
+        } else {
+            while (node.getPriority() <= temp.getPriority() && temp.getNextNode() != null){
+                elem = temp;
+                temp = temp.getNextNode();
+            }
+            if (node.getPriority() > peekItem.getPriority()){
+                node.setNextNode(peekItem);
+                peekItem = node;
+            } else {
+                node.setNextNode(temp);
+                elem.setNextNode(node);
+            }
         }
         size++;
     }
