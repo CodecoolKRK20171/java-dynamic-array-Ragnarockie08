@@ -4,25 +4,26 @@ import java.util.Arrays;
 
 public class DynamicIntArray<E> {
 
+    private int capacity = 10;
     private  Object[] data;
     private int size;
 
     public DynamicIntArray(){
 
-        data = new Object [0];
+        data = new Object [capacity];
         size = 0;
     }
 
     public DynamicIntArray(int initialSize){
         data = new Object [initialSize];
-        size = data.length;
+        this.capacity = initialSize;
+        size = 0;
     }
 
-    private void increaseDataSize(int newSize){
+    private void increaseDataSize(){
 
-        int length = data.length;
-        if (length < newSize){
-            data = Arrays.copyOf(data, newSize);
+        if (size == capacity){
+            data = Arrays.copyOf(data, capacity * 2);
         }
     }
 
@@ -34,7 +35,7 @@ public class DynamicIntArray<E> {
 
     public boolean add(E element){
 
-        increaseDataSize(size + 1);
+        increaseDataSize();
         data[size++] = element;
         return true;
     }
@@ -85,6 +86,9 @@ public class DynamicIntArray<E> {
     public String toString(){
         String output = "";
         for (Object element: data){
+            if (element == null){
+                continue;
+            }
             output += " " + element;
         }
         return output;

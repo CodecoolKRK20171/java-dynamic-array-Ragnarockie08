@@ -30,7 +30,7 @@ public class CustomQueue<T> {
         Node node = new Node(value);
         node.setPriority(priority);
 
-        if (peekItem == null || priority == 0){
+        if (peekItem == null || priority <= last.getPriority()){
             enqueue(node);
         }else {
             handlePriorityQueue(node);
