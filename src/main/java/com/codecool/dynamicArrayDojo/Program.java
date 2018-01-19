@@ -1,6 +1,7 @@
 package com.codecool.dynamicArrayDojo;
 
 
+import com.codecool.dynamicArrayDojo.dynamic_array.DynamicIntArray;
 import com.codecool.dynamicArrayDojo.queue.CustomQueue;
 import com.codecool.dynamicArrayDojo.stack.Stack;
 
@@ -10,14 +11,13 @@ public class Program {
 
     public static void main(String[] args) {
 
-        CustomQueue<Integer> q = new CustomQueue<>();
+        DynamicIntArray<Integer> array = new DynamicIntArray();
 
-        q.enqueue(1, 21);
-        q.enqueue(2, 2);
-        q.enqueue(3, 22);
+        array.add(1);
+        array.add(2);
+        array.add(3);
+        array.insert(5, 4);
+        System.out.println(array);
 
-        System.out.println(q);
-
-        System.out.println(q.peek().getValue());
     }
 }

@@ -40,6 +40,7 @@ public class DynamicIntArray<E> {
     }
 
     public boolean remove(int index){
+
         checkIndex(index);
 
         for (int i = index; i < size() - 1; i++) {
@@ -51,15 +52,20 @@ public class DynamicIntArray<E> {
 
     }
 
-    public boolean insert(int index, E element){
+    public void insert(int index, E element){
 
-        checkIndex(index);
-        data = Arrays.copyOf(data, ++size);
-        for (int i = size()-2; i >= index; i--) {
-            data[i+1] = data[i];
+
+        if (index >= size){
+            add(element);
+        } else if (index > 0) {
+            data = Arrays.copyOf(data, ++size);
+            for (int i = size()-2; i >= index; i--) {
+                data[i+1] = data[i];
+            }
+            data[index] = element;
+        } else {
+            throw new IllegalArgumentException();
         }
-        data[index] = element;
-        return true;
     }
 
     public int size(){
@@ -71,7 +77,7 @@ public class DynamicIntArray<E> {
     }
 
     private void checkIndex(int index){
-        if (index >= size || index < 0){
+        if (index < 0 || index >= size){
             throw new ArrayIndexOutOfBoundsException();
         }
     }
